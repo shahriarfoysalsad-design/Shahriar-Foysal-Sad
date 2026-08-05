@@ -1,4 +1,99 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+}
+
+header{
+    background:#0d6efd;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.menu-icon{
+    font-size:30px;
+    cursor:pointer;
+}
+
+.menu{
+    display:none;
+    position:absolute;
+    right:10px;
+    top:60px;
+    background:white;
+    width:180px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,.3);
+}
+
+.menu a{
+    display:block;
+    padding:12px;
+    text-decoration:none;
+    color:black;
+    border-bottom:1px solid #ddd;
+}
+
+.menu a:hover{
+    background:#f2f2f2;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Welcome to my portfolio</div>
+
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<div class="menu" id="menu">
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="data.html">Data</a>
+</div>
+</header>
+
+<script>
+function toggleMenu(){
+    let menu=document.getElementById("menu");
+
+    if(menu.style.display==="block"){
+        menu.style.display="none";
+    }else{
+        menu.style.display="block";
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport"
@@ -10,7 +105,7 @@
 <body bgcolor="#101820" text="white"></body>
 <body>
     <center>
-<h1>Welcome to my portfolio</h1>
+
 <br>
 
 <img src="b7d6cafb-6d73-45c3-b3be-91bb9bc08d6f.jpg" alt="Profile" width="200" height="200"
