@@ -1,150 +1,841 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Shahriar Foysal Sad | Portfolio</title>
+
 
 <style>
-body{
+
+/* ================= BASIC ================= */
+
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
     font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
 }
 
-header{
-    background:#0d6efd;
+
+/* ================= HERO ================= */
+
+.hero{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #07111f,
+        #123c8c,
+        #2563eb
+    );
+
     color:white;
-    padding:15px;
+
     display:flex;
-    justify-content:space-between;
+
+    flex-direction:column;
+
+    justify-content:center;
+
     align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    padding:30px;
+
 }
 
-.logo{
-    font-size:22px;
-    font-weight:bold;
+
+/* ================= PROFILE PHOTO ================= */
+
+.profile{
+
+    width:145px;
+
+    height:145px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid white;
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,.35);
+
+    margin-bottom:25px;
+
 }
 
-.menu-icon{
-    font-size:30px;
+
+/* ================= TITLE ================= */
+
+.hero h1{
+
+    font-size:42px;
+
+    margin-bottom:12px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+    opacity:.9;
+
+}
+
+
+/* ================= MENU BUTTON ================= */
+
+.menu-btn{
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    rgba(255,255,255,.15);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:5px;
+
     cursor:pointer;
+
 }
+
+.menu-btn span{
+
+    width:27px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:10px;
+
+}
+
+
+/* ================= MENU ================= */
 
 .menu{
-    display:none;
+
     position:absolute;
-    right:10px;
-    top:60px;
+
+    top:88px;
+
+    right:25px;
+
+    width:200px;
+
     background:white;
-    width:180px;
-    border-radius:8px;
-    box-shadow:0 0 10px rgba(0,0,0,.3);
+
+    padding:10px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 12px 35px rgba(0,0,0,.3);
+
+    display:none;
+
+    z-index:100;
+
+}
+
+.menu.active{
+
+    display:block;
+
 }
 
 .menu a{
+
     display:block;
-    padding:12px;
+
+    padding:15px;
+
+    color:#222;
+
     text-decoration:none;
-    color:black;
-    border-bottom:1px solid #ddd;
+
+    font-weight:bold;
+
+    border-radius:10px;
+
+    transition:.3s;
+
 }
 
 .menu a:hover{
-    background:#f2f2f2;
+
+    background:#e8f0ff;
+
+    color:#2563eb;
+
 }
+
+
+/* ================= SCROLL ARROW ================= */
+
+.scroll-down{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    text-align:center;
+
+    cursor:pointer;
+
+}
+
+.scroll-down span{
+
+    display:block;
+
+    font-size:32px;
+
+    animation:
+    arrowMove 1.5s infinite;
+
+}
+
+
+/* Arrow animation */
+
+@keyframes arrowMove{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        transform:translateY(12px);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+        opacity:.4;
+
+    }
+
+}
+
+.scroll-down small{
+
+    font-size:13px;
+
+    opacity:.8;
+
+}
+
+
+/* ================= INTRO ================= */
+
+.intro{
+
+    padding:90px 20px;
+
+    background:white;
+
+    text-align:center;
+
+}
+
+.intro h2{
+
+    font-size:32px;
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+}
+
+.intro p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+
+/* ================= SCROLL CARDS ================= */
+
+.scroll-data{
+
+    margin:35px 20px;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    color:white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.12);
+
+    opacity:0;
+
+    transform:translateY(100px);
+
+    transition:
+    opacity .9s ease,
+    transform .9s ease;
+
+}
+
+
+/* Show */
+
+.scroll-data.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* ================= COLORS ================= */
+
+.skills{
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #06b6d4
+    );
+
+}
+
+.projects{
+
+    background:
+    linear-gradient(
+        135deg,
+        #7c3aed,
+        #ec4899
+    );
+
+}
+
+.goal{
+
+    background:
+    linear-gradient(
+        135deg,
+        #059669,
+        #22c55e
+    );
+
+}
+
+.thanks{
+
+    background:
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #ef4444
+    );
+
+}
+
+
+/* ================= CARD TEXT ================= */
+
+.scroll-data h2{
+
+    font-size:28px;
+
+    margin-bottom:14px;
+
+}
+
+.scroll-data p{
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}
+
+
+/* ================= SKILLS ================= */
+
+.skills-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.skill{
+
+    padding:9px 15px;
+
+    background:
+    rgba(255,255,255,.2);
+
+    border:
+    1px solid rgba(255,255,255,.3);
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    margin-top:70px;
+
+    padding:30px;
+
+    background:#07111f;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .profile{
+
+        width:120px;
+
+        height:120px;
+
+    }
+
+    .hero h1{
+
+        font-size:31px;
+
+    }
+
+    .hero p{
+
+        font-size:16px;
+
+    }
+
+    .scroll-data{
+
+        margin:25px 15px;
+
+        padding:25px;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<header>
-<div class="logo">Welcome to my portfolio</div>
 
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
+<!-- ================================================= -->
+<!-- HERO -->
+<!-- ================================================= -->
 
-<div class="menu" id="menu">
-<a href="https://shahriarfoysalsad-design.github.io/Shahriar-F/">About</a>
-<a href="#">Contact</a>
-<a href="#">Data</a>
+<section class="hero"
+id="home">
+
+
+    <!-- PROFILE PHOTO -->
+
+    <img
+        src="profile.jpg"
+        class="profile"
+        alt="My Profile Photo"
+    >
+
+
+    <!-- 3 LINE MENU -->
+
+    <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+    >
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+    </button>
+
+
+    <!-- MENU -->
+
+    <div
+        class="menu"
+        id="menu"
+    >
+
+        <a href="about.html">
+
+            👤 About
+
+        </a>
+
+
+        <a href="contact.html">
+
+            📞 Contact
+
+        </a>
+
+
+        <a href="data.html">
+
+            📊 Data
+
+        </a>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <h1>
+
+        Welcome to My Portfolio
+
+    </h1>
+
+
+    <p>
+
+        Creative • Professional • Personal
+
+    </p>
+
+
+    <!-- SCROLL INDICATOR -->
+
+    <div
+        class="scroll-down"
+        onclick="scrollToContent()"
+    >
+
+        <small>
+            Scroll Down
+        </small>
+
+        <span>
+            ↓
+        </span>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- INTRO -->
+<!-- ================================================= -->
+
+<section class="intro">
+
+    <h2>
+
+        Welcome 👋
+
+    </h2>
+
+
+    <p>
+
+        Welcome to my personal portfolio website.
+        এখানে আমার skills, projects, goals এবং
+        অন্যান্য তথ্য দেখতে পারবে।
+
+    </p>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- SKILLS -->
+<!-- ================================================= -->
+
+<div class="scroll-data skills">
+
+    <h2>
+
+        💻 My Skills
+
+    </h2>
+
+
+    <p>
+
+        I work with modern web technologies
+        and creative website design.
+
+    </p>
+
+
+    <div class="skills-list">
+
+        <span class="skill">
+            HTML
+        </span>
+
+        <span class="skill">
+            CSS
+        </span>
+
+        
+
+        <span class="skill">
+            Web Design
+        </span>
+
+    </div>
+
 </div>
-</header>
+
+
+
+<!-- ================================================= -->
+<!-- PROJECTS -->
+<!-- ================================================= -->
+
+<div class="scroll-data projects">
+
+    <h2>
+
+        🚀 My Projects
+
+    </h2>
+
+
+    <p>
+
+        এখানে আমার তৈরি করা বিভিন্ন website,
+        portfolio এবং creative projects
+        সম্পর্কে তথ্য থাকবে।
+
+    </p>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- GOAL -->
+<!-- ================================================= -->
+
+<div class="scroll-data goal">
+
+    <h2>
+
+        🎯 My Goal
+
+    </h2>
+
+
+    <p>
+
+        Professional, modern এবং সুন্দর
+        website তৈরি করা আমার প্রধান লক্ষ্য।
+        প্রতিদিন নতুন কিছু শেখা এবং
+        নিজের skills উন্নত করা আমার উদ্দেশ্য।
+
+    </p>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- THANK YOU -->
+<!-- ================================================= -->
+
+<div class="scroll-data thanks">
+
+    <h2>
+
+        ❤️ Thank You
+
+    </h2>
+
+
+    <p>
+
+        আমার portfolio website দেখার জন্য
+        অনেক ধন্যবাদ।
+
+    </p>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<footer>
+
+    © 2026 My Portfolio
+
+</footer>
+
+
 
 <script>
-function toggleMenu(){
-    let menu=document.getElementById("menu");
 
-    if(menu.style.display==="block"){
-        menu.style.display="none";
-    }else{
-        menu.style.display="block";
-    }
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+    document
+    .getElementById("menu")
+    .classList.toggle("active");
+
 }
+
+
+/* ================= SCROLL BUTTON ================= */
+
+function scrollToContent(){
+
+    window.scrollTo({
+
+        top:window.innerHeight,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* ================= SCROLL ANIMATION ================= */
+
+const cards =
+document.querySelectorAll(
+    ".scroll-data"
+);
+
+
+function revealCards(){
+
+    cards.forEach(function(card){
+
+        const position =
+        card.getBoundingClientRect().top;
+
+
+        if(
+            position <
+            window.innerHeight - 80
+        ){
+
+            card.classList.add("show");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    revealCards
+);
+
+
+revealCards();
+
 </script>
 
+
 </body>
-</html>
 
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport"
-    content="width=device-width,
-    initial-scale=1">
-    <title>Shahriar Foysal Sad</title>
-    <link rel="icon" type="image/jpeg" href="logo.png.jpg">
-</head>
-<body bgcolor="#101820" text="white"></body>
-<body>
-    <center>
-
-<br>
-
-<img src="b7d6cafb-6d73-45c3-b3be-91bb9bc08d6f.jpg" alt="Profile" width="200" height="200"
-style="border-radius:50%; object-fit:cover; border:3px solid blue;">
-
-
-
-
-    <h2>Shahriar Foysal Sad</h2>
-    <p>Web Designer।HTML Developer </p>
-    <br>
-
-<button
-style="background-color:blue; color:white; 
-padding:12px 25px; border:none;
- border-radius:8px; 
- font-size:18px; cursor:pointer;"
-onclick="window.location.href='https://shahriarfoysalsad-design.github.io/Shahriar-F/'">
-About Me
-</button>
-<br>
-<br>
-
-    <hr width="80%">
-    <h2>Skills</h2>
-    <p>✅Html</p>
-      <p>✅CSS</p>
-      <hr width="80%">
-      <h2>Projects</h2>
-      <p>📌Media website </p>
-<p>📌Portfolio website</p>
-<hr width="80%">
-<h2>Contact</h2>
-<p>📱Phone:01723277322</p>
-<p>📱Whats App Number: 01328392959</p>
-<hr width="80%">
-<h2>Social Links</h2>
-<p>
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/share/1Ke4zK8xZ6/
-" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
-        alt="Facebook" width="30">
-</p>
-   
-    
-    </center>
-</body>
 </html>
